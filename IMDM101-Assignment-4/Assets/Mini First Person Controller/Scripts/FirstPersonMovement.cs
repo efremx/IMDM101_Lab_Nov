@@ -17,6 +17,12 @@ public class FirstPersonMovement : MonoBehaviour
     public static bool finished;
     public AudioSource source;
     public AudioClip clip;
+    public GameObject redArrow1;
+    public GameObject redArrow2;
+    public GameObject pinkArrow1;
+    public GameObject pinkArrow2;
+    public GameObject blueArrow1;
+    public GameObject blueArrow2;
 
     Rigidbody rigidbody;
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
@@ -28,6 +34,7 @@ public class FirstPersonMovement : MonoBehaviour
     {
         // Get the rigidbody on this.
         rigidbody = GetComponent<Rigidbody>();
+
         hasRed = false;
         hasPink = false;
         hasBlue = false;
@@ -51,7 +58,7 @@ public class FirstPersonMovement : MonoBehaviour
         }
 
         // Get targetVelocity from input.
-        Vector2 targetVelocity =new Vector2( Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
+        Vector2 targetVelocity = new Vector2( Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
 
         // Apply movement.
         rigidbody.linearVelocity = transform.rotation * new Vector3(targetVelocity.x, rigidbody.linearVelocity.y, targetVelocity.y);
